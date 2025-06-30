@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="现在的我还处于一个对未来比较迷茫的阶段，并没有想好以后要从事哪个方向，再加上对小学期的感兴趣，十分不经思考的给自己把三个小学期都报上了，开启了每天早八晚九，十一点半还在写报告的日子。但是我认为既然我花了时间，我就不能白学，为了不挂科而编一个报告就算结束，于是就有了这篇博客。（三个小学期的项目每个都会有博客，只是渗透测试是第一个结束的，所以这个博客先出来）"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="John Doe"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="大一下小暑期之--渗透测试"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="现在的我还处于一个对未来比较迷茫的阶段，并没有想好以后要从事哪个方向，再加上对小学期的感兴趣，十分不经思考的给自己把三个小学期都报上了，开启了每天早八晚九，十一点半还在写报告的日子。但是我认为既然我花了时间，我就不能白学，为了不挂科而编一个报告就算结束，于是就有了这篇博客。（三个小学期的项目每个都会有博客，只是渗透测试是第一个结束的，所以这个博客先出来）"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="电子大跌"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="https://digitaldadie.github.ioimg/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="https://digitaldadie.github.ioimg/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>大一下小暑期之--渗透测试 - 电子大跌</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>大一下小暑期之--渗透测试</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2025-06-30
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+<a href="/categories/未分类/">未分类</a>
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>渗透测试（Penetration Testing）作为网络安全的重要组成部分，已成为企业评估系统安全性不可或缺的环节。本文将带你了解渗透测试的基本概念、流程以及实战技巧。</p>
+<h1 id="一、渗透测试概述"><a href="#一、渗透测试概述" class="headerlink" title="一、渗透测试概述"></a>一、渗透测试概述</h1><h2 id="1-1-什么是渗透测试？"><a href="#1-1-什么是渗透测试？" class="headerlink" title="1.1 什么是渗透测试？"></a>1.1 什么是渗透测试？</h2><p>渗透测试是一种授权的、模拟黑客攻击的安全评估方法，通过主动探测系统漏洞来评估网络防御能力。与恶意攻击的本质区别在于，渗透测试是在授权和合规的前提下进行的。</p>
+<h2 id="1-2-渗透测试的目的"><a href="#1-2-渗透测试的目的" class="headerlink" title="1.2 渗透测试的目的"></a>1.2 渗透测试的目的</h2><ul>
+<li>发现系统潜在漏洞</li>
+<li>评估现有安全措施的有效性</li>
+<li>验证安全策略的合规性</li>
+<li>增强组织整体安全意识</li>
+</ul>
+<h1 id="二、渗透测试基本流程"><a href="#二、渗透测试基本流程" class="headerlink" title="二、渗透测试基本流程"></a>二、渗透测试基本流程</h1><h2 id="2-1-前期交互阶段"><a href="#2-1-前期交互阶段" class="headerlink" title="2.1 前期交互阶段"></a>2.1 前期交互阶段</h2><ul>
+<li>确定测试范围与目标</li>
+<li>签订测试协议（明确责任与权限）</li>
+<li>制定测试计划与时间表</li>
+</ul>
+<h2 id="2-2-信息收集"><a href="#2-2-信息收集" class="headerlink" title="2.2 信息收集"></a>2.2 信息收集</h2><ul>
+<li>主动扫描：使用Nmap、Shodan等工具</li>
+<li>被动收集：利用搜索引擎（Google Hacking）、社工库等</li>
+<li>漏洞情报分析：CVE、CNVD等漏洞库利用</li>
+</ul>
+<h2 id="2-3-漏洞分析与利用"><a href="#2-3-漏洞分析与利用" class="headerlink" title="2.3 漏洞分析与利用"></a>2.3 漏洞分析与利用</h2><ul>
+<li>自动化扫描：使用OpenVAS、Nessus等工具</li>
+<li>手动验证：针对特定漏洞进行复现</li>
+<li>权限提升：获取更高系统权限</li>
+</ul>
+<h2 id="2-4-后渗透阶段"><a href="#2-4-后渗透阶段" class="headerlink" title="2.4 后渗透阶段"></a>2.4 后渗透阶段</h2><ul>
+<li>维持访问：植入后门、创建隐藏账户</li>
+<li>横向移动：在内网中扩大控制范围</li>
+<li>数据提取：模拟敏感数据泄露过程</li>
+</ul>
+<h2 id="2-5-报告阶段"><a href="#2-5-报告阶段" class="headerlink" title="2.5 报告阶段"></a>2.5 报告阶段</h2><ul>
+<li>漏洞详情描述</li>
+<li>风险等级评估</li>
+<li>修复建议与方案</li>
+</ul>
+<h1 id="三、常用渗透测试工具"><a href="#三、常用渗透测试工具" class="headerlink" title="三、常用渗透测试工具"></a>三、常用渗透测试工具</h1><h2 id="3-1-网络扫描工具"><a href="#3-1-网络扫描工具" class="headerlink" title="3.1 网络扫描工具"></a>3.1 网络扫描工具</h2><ul>
+<li>Nmap：网络发现与端口扫描</li>
+<li>Wireshark：网络数据包分析</li>
+<li>ZAP：Web应用安全测试</li>
+</ul>
+<h2 id="3-2-漏洞利用工具"><a href="#3-2-漏洞利用工具" class="headerlink" title="3.2 漏洞利用工具"></a>3.2 漏洞利用工具</h2><ul>
+<li>Metasploit：漏洞利用框架</li>
+<li>SQLMap：自动化SQL注入工具</li>
+<li>Burp Suite：Web应用测试套件</li>
+</ul>
+<h2 id="3-3-密码破解工具"><a href="#3-3-密码破解工具" class="headerlink" title="3.3 密码破解工具"></a>3.3 密码破解工具</h2><ul>
+<li>John the Ripper：密码破解工具</li>
+<li>Hashcat：高性能密码破解</li>
+</ul>
+<h1 id="四、渗透测试实战技巧-我会以我们这次三个靶机为例子"><a href="#四、渗透测试实战技巧-我会以我们这次三个靶机为例子" class="headerlink" title="四、渗透测试实战技巧(我会以我们这次三个靶机为例子)"></a>四、渗透测试实战技巧(我会以我们这次三个靶机为例子)</h1><h2 id="4-1-Kali-Linux-基础环境配置实验"><a href="#4-1-Kali-Linux-基础环境配置实验" class="headerlink" title="4.1 Kali Linux 基础环境配置实验"></a>4.1 Kali Linux 基础环境配置实验</h2><ul>
+<li>在渗透测试前，首先需要完成 Kali Linux 的基础环境配置。</li>
+<li>确认虚拟网络环境 </li>
+<li>通过修改网络配置文件 &#x2F;etc&#x2F;network&#x2F;interfaces<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/network/interfaces</span><br></pre></td></tr></table></figure></li>
+<li>配置静态 NAT 网络：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">auto eth0</span><br><span class="line">iface eth0 inet static</span><br><span class="line">address 192.168.40.130</span><br><span class="line">netmask 255.255.255.0</span><br><span class="line">gateway 192.168.40.1</span><br></pre></td></tr></table></figure>
+保存后重启网络服务： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service networking restart </span><br></pre></td></tr></table></figure></li>
+<li>常见漏洞检测（SQL注入、XSS、CSRF等）</li>
+<li>身份认证绕过技术</li>
+<li>文件上传漏洞利用</li>
+</ul>
+<h2 id="4-2-内网渗透方法"><a href="#4-2-内网渗透方法" class="headerlink" title="4.2 内网渗透方法"></a>4.2 内网渗透方法</h2><ul>
+<li>代理隧道建立（Proxychains、EarthWorm）</li>
+<li>域渗透基础（Kerberos攻击、域控利用）</li>
+<li>横向移动技术</li>
+</ul>
+<h2 id="4-3-社会工程学应用"><a href="#4-3-社会工程学应用" class="headerlink" title="4.3 社会工程学应用"></a>4.3 社会工程学应用</h2><ul>
+<li>钓鱼攻击模拟</li>
+<li>信息收集与伪装技巧</li>
+<li>人员心理弱点分析</li>
+</ul>
+<h1 id="五、法律与道德准则"><a href="#五、法律与道德准则" class="headerlink" title="五、法律与道德准则"></a>五、法律与道德准则</h1><ul>
+<li>渗透测试必须遵守相关法律法规</li>
+<li>未经授权的测试行为可能构成犯罪</li>
+<li>遵循行业道德规范（如ISC2道德准则）</li>
+</ul>
+<h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>渗透测试不仅是技术的挑战，更是思维方式的考验。通过系统化的测试流程和专业工具的应用，可以有效提升组织的安全防御能力。建议定期开展渗透测试，保持网络安全的动态防护。</p>
+<p><strong>参考资源</strong>：</p>
+<ul>
+<li>《The Art of Memory Forensics》</li>
+<li>OWASP Top Ten</li>
+<li>NIST SP 800-115</li>
+</ul>
+<p><strong>注意</strong>：本文仅用于技术交流与学习，请严格遵守法律规定，禁止任何非法活动。</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2025 John Doe<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
